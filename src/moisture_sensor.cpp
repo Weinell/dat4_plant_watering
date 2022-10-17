@@ -4,14 +4,14 @@
 const int powerPin = 13;
 const int sensorPin = 12;
 
-void setup() {
+void setupMS() {
   // put your setup code here, to run once:
 pinMode(powerPin, OUTPUT);
 pinMode(sensorPin, INPUT);
 Serial.begin(1115200);
 }
 
-void loop() {
+void loopMS() {
   // put your main code here, to run repeatedly:
 float moisture = digitalRead(sensorPin);
 Serial.println(moisture);

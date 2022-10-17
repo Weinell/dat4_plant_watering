@@ -1,9 +1,9 @@
 #ifndef MOISTURE_SENSOR_H
 #define MOISTURE_SENSOR_H
 
-void setup();
+void setupMS();
 
-void loop();
+void loopMS();
 
 
 #endif
