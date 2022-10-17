@@ -1,13 +1,14 @@
+#include "moisture_sensor.h"
 #include <Arduino.h>
 
-#define powerPin = D5;
-#define sensorPin = D18;
+const int powerPin = 12;
+const int sensorPin = 13;
 
 void setup() {
   // put your setup code here, to run once:
 pinMode(powerPin, OUTPUT);
 pinMode(sensorPin, INPUT);
-Serial.begin(9600);
+Serial.begin(1115200);
 }
 
 void loop() {
