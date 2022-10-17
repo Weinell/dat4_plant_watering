@@ -4,9 +4,9 @@
 
 void setup() {
     setupWifi();
-    setupMS();
+    //setupMS();
 }
 
 void loop() {
-    loopMS();
+    //loopMS();
 }

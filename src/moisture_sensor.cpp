@@ -8,11 +8,11 @@ void setupMS() {
   // put your setup code here, to run once:
 pinMode(powerPin, OUTPUT);
 pinMode(sensorPin, INPUT);
-Serial.begin(1115200);
+//Serial.begin(1115200);
 }
 
 void loopMS() {
   // put your main code here, to run repeatedly:
 float moisture = digitalRead(sensorPin);
-Serial.println(moisture);
+//Serial.println(moisture);
 }
