@@ -3,10 +3,10 @@
 
 
 void setup() {
-    setupWifi();
-    //setupMS();
+    //setupWifi();
+    setupMS();
 }
 
 void loop() {
-    //loopMS();
+    loopMS();
 }

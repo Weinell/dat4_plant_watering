@@ -1,18 +1,22 @@
 #include "moisture_sensor.h"
 #include <Arduino.h>
 
-const int powerPin = 13;
-const int sensorPin = 12;
+const int sensorPin = 4;
+
+int airValue = 620;
+int waterValue = 300;
+int moistureVal = 0;
+int moisturePercent = 0;
 
 void setupMS() {
-  // put your setup code here, to run once:
-pinMode(powerPin, OUTPUT);
-pinMode(sensorPin, INPUT);
-//Serial.begin(1115200);
+    //Serial.begin(1115200);
+    Serial.begin(9600);
 }
 
 void loopMS() {
-  // put your main code here, to run repeatedly:
-float moisture = digitalRead(sensorPin);
-//Serial.println(moisture);
+    moistureVal = analogRead(sensorPin);
+    moisturePercent = map(moistureVal, airValue, waterValue, 0, 100);
+    Serial.println(moistureVal);
+    Serial.println(moisturePercent);
+    delay(1000);
 }
