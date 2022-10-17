@@ -1,8 +1,8 @@
 #include "moisture_sensor.h"
 #include <Arduino.h>
 
-const int powerPin = 12;
-const int sensorPin = 13;
+const int powerPin = 13;
+const int sensorPin = 12;
 
 void setup() {
   // put your setup code here, to run once:
