@@ -4,7 +4,7 @@
 
 void setup() {
     setupWifi();
-
+    setupHTTP();
 }
 
 void loop() {
