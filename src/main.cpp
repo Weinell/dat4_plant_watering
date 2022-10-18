@@ -1,4 +1,5 @@
 #include "wifi_functionality.h"
+#include "http_functionality.h"
 
 
 void setup() {
@@ -7,5 +8,5 @@ void setup() {
 }
 
 void loop() {
-
+    loopHTTP();
 }
