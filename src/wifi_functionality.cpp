@@ -1,4 +1,5 @@
 #include "wifi_functionality.h"
+#include "http_functionality.h"
 #include <WiFiManager.h> // https://github.com/tzapu/WiFiManager
 
 
@@ -34,5 +35,6 @@ WiFi.mode(WIFI_STA); // explicitly set mode, esp defaults to STA+AP
     else {
         //if you get here you have connected to the WiFi    
         Serial.println("Connected");
+        setupHTTP();
     }
 }
