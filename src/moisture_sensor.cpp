@@ -3,8 +3,8 @@
 
 const int sensorPin = 34;
 
-int airValue = 600;
-int waterValue = 4095;
+int airValue = 4095;
+int waterValue = 600;
 int moistureVal = 0;
 int moisturePercent = 0;
 
