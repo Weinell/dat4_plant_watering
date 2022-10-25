@@ -1,10 +1,10 @@
 #include "moisture_sensor.h"
 #include <Arduino.h>
 
-const int sensorPin = 4;
+const int sensorPin = 34;
 
-int airValue = 620;
-int waterValue = 300;
+int airValue = 600;
+int waterValue = 4095;
 int moistureVal = 0;
 int moisturePercent = 0;
 
