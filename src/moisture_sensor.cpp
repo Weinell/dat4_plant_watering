@@ -30,7 +30,7 @@ void loopMS() {
     if (moisturePercent < threshhold)
     {
         stopPump();
-        Serial.println("Stop pump")
+        Serial.println("Stop pump");
     }
     
     delay(1000);
