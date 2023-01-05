@@ -5,14 +5,15 @@
 
 const int    HTTP_PORT   = 80;
 const String HTTP_METHOD = "GET"; // or "POST"
-const char   HOST_NAME[] = "https://water-steel.vercel.app/api"; // hostname of web server:
-const String HEALTH   = "/health";
+const char   HOST_NAME[] = "https://water-steel.vercel.app/api/healthT"; // hostname of web server:
+const String HEALTH   = "/healthT";
 
 WiFiClient client;
 
 
 void setupHTTP()     {
-    Serial.begin(1115200);
+    //Serial.begin(1115200);
+    Serial.begin(9600);
     if(client.connect(HOST_NAME, HTTP_PORT)) {
     Serial.println("Connected to server");
     } else {
