@@ -3,10 +3,10 @@
 #include <string>
 
 
-const int    HTTP_PORT   = 3030;
+const int    HTTP_PORT   = 80;
 const String HTTP_METHOD = "GET"; // or "POST"
-const char   HOST_NAME[] = "localhost"; // hostname of web server:
-const String PATH_NAME   = "goodbye";
+const char   HOST_NAME[] = "https://water-steel.vercel.app/api"; // hostname of web server:
+const String HEALTH   = "/health";
 
 WiFiClient client;
 
@@ -20,7 +20,7 @@ void setupHTTP()     {
     }
     
     // send HTTP request header
-    client.println(HTTP_METHOD + " " + PATH_NAME + " HTTP/1.1");
+    client.println(HTTP_METHOD + " " + HEALTH + " HTTP/1.1");
     client.println("Host: " + String(HOST_NAME));
     client.println("Connection: close");
     client.println(); // end HTTP request header
