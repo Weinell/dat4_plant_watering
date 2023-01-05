@@ -3,16 +3,16 @@
 #include <string>
 
 
-const int    HTTP_PORT   = 80;
+const int    HTTP_PORT   = 3030;
 const String HTTP_METHOD = "GET"; // or "POST"
-const char   HOST_NAME[] = "example.phpoc.com"; // hostname of web server:
-const String PATH_NAME   = "";
+const char   HOST_NAME[] = "localhost"; // hostname of web server:
+const String PATH_NAME   = "goodbye";
 
 WiFiClient client;
 
 
 void setupHTTP()     {
-    //Serial.begin(1115200);
+    Serial.begin(1115200);
     if(client.connect(HOST_NAME, HTTP_PORT)) {
     Serial.println("Connected to server");
     } else {
