@@ -3,6 +3,7 @@
 
 void setupHTTP();
 void loopHTTP();
-
+void healthCheckRequest();
+void setupAsyncServer();
 
 #endif
