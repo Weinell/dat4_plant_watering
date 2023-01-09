@@ -3,6 +3,7 @@
 #include <string>
 #include <HTTPClient.h>
 #include "ESPAsyncWebServer.h"
+#include "trigger_water.h"
 
 const int    HTTP_PORT   = 80;
 const String HTTP_METHOD = "GET"; // or "POST"
@@ -51,7 +52,17 @@ void setupAsyncServer() {
   });
  
   server.on("/water", HTTP_GET, [](AsyncWebServerRequest *request){
+    triggerWater(1000);
     request->send(200, "text/plain", "I am watering!");
+  });
+
+  server.on("/health", HTTP_GET, [](AsyncWebServerRequest *request){
+    request->send(200, "text/plain", "You got a healthy response!");
+  });
+
+  server.on("/moist", HTTP_GET, [](AsyncWebServerRequest *request){
+    getMoisturePercentage();
+    request->send(200, "text/plain", "You got a healthy response!");
   });
  
   server.on("/redirect/external", HTTP_GET, [](AsyncWebServerRequest *request){
@@ -61,7 +72,7 @@ void setupAsyncServer() {
   server.begin();
   }
 
-void healthCheckRequest()  {
+/*void healthCheckRequest()  {
   HTTPClient http;
 
   http.begin("http://water-steel.vercel.app/api/health"); // specify the URL
@@ -76,4 +87,6 @@ void healthCheckRequest()  {
   }
 
   http.end(); // close the connection
-}
+
+  delay(4000);
+}*/
