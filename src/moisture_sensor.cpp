@@ -8,14 +8,11 @@ int waterValue = 300;
 int moistureVal = 0;
 int moisturePercent = 0;
 
-void setupMS() {
 
-}
-
-void loopMS() {
+int measureMoisture() {
     moistureVal = analogRead(sensorPin);
     moisturePercent = map(moistureVal, airValue, waterValue, 0, 100);
     Serial.println(moistureVal);
     Serial.println(moisturePercent);
-    delay(1000);
+    return moisturePercent;
 }

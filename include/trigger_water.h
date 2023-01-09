@@ -3,6 +3,6 @@
 
 
 void triggerWater(int milisDelay);
-
+int getMoisturePercentage();
 
 #endif

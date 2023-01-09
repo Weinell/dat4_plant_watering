@@ -1,6 +1,8 @@
 #include "trigger_water.h"
 #include "Arduino.h"
 #include "moisture_sensor.h"
+#include "moisture_sensor.h"
+#include <Arduino.h>
 
 const int pumpPin = 2;
 
@@ -13,6 +15,6 @@ void triggerWater(int milisDelay) {
 }
 
 
-void getMoisturePercentage()    {
-    
+int getMoisturePercentage()    {
+    return measureMoisture();
 }

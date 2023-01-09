@@ -4,6 +4,7 @@
 #include <HTTPClient.h>
 #include "ESPAsyncWebServer.h"
 #include "trigger_water.h"
+#include <ArduinoJson.h>
 
 const int    HTTP_PORT   = 80;
 const String HTTP_METHOD = "GET"; // or "POST"
@@ -61,14 +62,18 @@ void setupAsyncServer() {
   });
 
   server.on("/moist", HTTP_GET, [](AsyncWebServerRequest *request){
-    getMoisturePercentage();
-    request->send(200, "text/plain", "You got a healthy response!");
+
+    int moisture = getMoisturePercentage();
+
+    std::string moisture_string = std::to_string(moisture);
+
+    char moist[moisture_string.length() + 1];
+    strcpy(moist, moisture_string.c_str());
+  
+
+    request->send(200, "text/plain", moist);
   });
- 
-  server.on("/redirect/external", HTTP_GET, [](AsyncWebServerRequest *request){
-    request->redirect("https://techtutorialsx.com/");
-  });
- 
+  
   server.begin();
   }
 
