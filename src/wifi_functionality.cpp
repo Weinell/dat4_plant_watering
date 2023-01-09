@@ -29,7 +29,7 @@ WiFi.mode(WIFI_STA); // explicitly set mode, esp defaults to STA+AP
     res = wm.autoConnect("PlantWateringAP","password"); // password protected ap
 
     if(!res) {
-        Serial.println("Failed to connect");
+        //Serial.println("Failed to connect");
         // ESP.restart();
     } 
     else {

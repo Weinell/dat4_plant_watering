@@ -1,5 +1,6 @@
 #include "trigger_water.h"
 #include "Arduino.h"
+#include "moisture_sensor.h"
 
 const int pumpPin = 2;
 
