@@ -13,8 +13,3 @@ void triggerWater(int milisDelay) {
     delay(milisDelay);
     digitalWrite(pumpPin, LOW);
 }
-
-
-int getMoisturePercentage()    {
-    return measureMoisture();
-}
