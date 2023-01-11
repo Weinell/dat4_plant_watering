@@ -2,6 +2,7 @@
 #include "http_functionality.h"
 #include "Arduino.h"
 #include "moisture_sensor.h"
+#include "trigger_water.h"
 
 
 void setup() {
@@ -12,5 +13,6 @@ void setup() {
 
 void loop() {
     httpClient();
+    automaticWater();
     delay(1000);
 }

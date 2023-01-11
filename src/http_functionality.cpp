@@ -32,7 +32,6 @@ void httpClient() {
 
     http.addHeader("Content-Type", "application/json");
 
-    //int request = http.POST("{\"moisturePercent\":\"measureMoisture()\"}");
     http.POST(json);
   
     http.end();
