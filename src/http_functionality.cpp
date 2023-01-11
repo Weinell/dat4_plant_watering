@@ -8,7 +8,7 @@
 #include "wifi_functionality.h"
 #include "moisture_sensor.h"
 
-const char   HOST_NAME[] = "http://192.168.2.204:3000/api/health"; // hostname of web server:
+const char   HOST_NAME[] = "https://water-steel.vercel.app/api/moist"; // hostname of web server:
 
 
 void moisturePercentPOST() {
@@ -33,6 +33,8 @@ void moisturePercentPOST() {
     http.addHeader("Content-Type", "application/json");
 
     http.POST(json);
+
+    Serial.println(http.getString());
   
     http.end();
   }

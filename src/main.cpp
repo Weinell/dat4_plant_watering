@@ -14,5 +14,5 @@ void setup() {
 void loop() {
     moisturePercentPOST();
     automaticWater();
-    delay(1000);
+    delay(10000);
 }
