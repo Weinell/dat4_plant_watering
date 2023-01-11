@@ -11,7 +11,7 @@
 const char   HOST_NAME[] = "http://192.168.2.204:3000/api/health"; // hostname of web server:
 
 
-void httpClient() {
+void moisturePercentPOST() {
 
   if (WiFi.status() == WL_CONNECTED){
 

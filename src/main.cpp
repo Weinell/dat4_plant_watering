@@ -12,7 +12,7 @@ void setup() {
 }
 
 void loop() {
-    httpClient();
+    moisturePercentPOST();
     automaticWater();
     delay(1000);
 }
