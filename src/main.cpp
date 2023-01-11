@@ -7,11 +7,10 @@
 void setup() {
     Serial.begin(9600);
     setupWifi();
-    setupAsyncServer();
+    
 }
 
 void loop() {
-    //setupHTTP();
-
-
+    httpClient();
+    delay(1000);
 }
