@@ -4,21 +4,26 @@
 #include <Arduino.h>
 #include "http_functionality.h"
 
-const int pumpPin = 2;
+const int LEDPin = 2;
+const int pumpPin = 12;
 
 int threshold = 40;
 
 
 void triggerWater(int timeMilis) {
     pinMode(pumpPin,OUTPUT);
+    pinMode(LEDPin,OUTPUT);
     delay(100);
     digitalWrite(pumpPin, HIGH);
+    digitalWrite(LEDPin, HIGH);
     delay(timeMilis);
     digitalWrite(pumpPin, LOW);
+    digitalWrite(LEDPin, LOW);
 }
 
-void automaticWater(int threshold, int timeMilis)   {
+void automaticWater(int newThreshold, int timeMilis)   {
     int moisture = measureMoisture();
+    threshold = newThreshold;
     if(moisture <= threshold)
     {
         Serial.println("Automatically watering!");
