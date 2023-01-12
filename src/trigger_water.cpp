@@ -1,10 +1,12 @@
 #include "trigger_water.h"
 #include "Arduino.h"
 #include "moisture_sensor.h"
-#include "moisture_sensor.h"
 #include <Arduino.h>
 
 const int pumpPin = 2;
+
+int threshold = 40;
+
 
 void triggerWater(int milisDelay) {
     pinMode(pumpPin,OUTPUT);
@@ -14,7 +16,11 @@ void triggerWater(int milisDelay) {
     digitalWrite(pumpPin, LOW);
 }
 
-
-int getMoisturePercentage()    {
-    return measureMoisture();
+void automaticWater()   {
+    int moisture = measureMoisture();
+    if(moisture <= threshold)
+    {
+        Serial.println("Automatically watering!");
+        triggerWater(1000);
+    }    
 }

@@ -2,16 +2,17 @@
 #include "http_functionality.h"
 #include "Arduino.h"
 #include "moisture_sensor.h"
+#include "trigger_water.h"
 
 
 void setup() {
     Serial.begin(9600);
     setupWifi();
-    setupAsyncServer();
+    
 }
 
 void loop() {
-    //setupHTTP();
-
-
+    moisturePercentPOST();
+    automaticWater();
+    delay(10000);
 }
