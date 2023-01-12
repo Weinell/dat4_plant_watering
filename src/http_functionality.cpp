@@ -2,13 +2,11 @@
 #include "WiFiManager.h"
 #include <string>
 #include <HTTPClient.h>
-#include "ESPAsyncWebServer.h"
 #include "trigger_water.h"
 #include <ArduinoJson.h>
 #include "wifi_functionality.h"
 #include "moisture_sensor.h"
-#include <cstring>
-using namespace std;
+
 
 const char   HOST_NAME_MOIST[] = "https://water-steel.vercel.app/api/moist";
 const char   HOST_NAME_POLL[] = "https://water-steel.vercel.app/api/poll";
@@ -48,27 +46,35 @@ void moisturePercentPOST() {
 }
 
 
-void getBackendInformation() {
+void getAndUpdateBackendInformation() {
   WiFiClient client;
   HTTPClient http;
 
-  http.begin(client, HOST_NAME_POLL);
+  http.begin(HOST_NAME_POLL);
 
   int httpResponse = http.GET();
 
-  String payload = "{}";
-
-  if(httpResponse > 0)  {
-    payload = http.getString();
-  } else{
-    Serial.println("Failed");
-  }
+  String payload = http.getString();
 
   Serial.println(payload);
   Serial.println(HOST_NAME_POLL);
 
-  //http.addHeader("Content-Type", "application/json");
-
   http.end();
 
+  DynamicJsonDocument doc(1024);
+  deserializeJson(doc, payload);
+  bool isWatering = doc["isWatering"];
+  int waterTimeMS = doc["waterTimeInMs"];
+  int threshold = doc["threshold"];
+
+  Serial.println(isWatering);
+  Serial.println(waterTimeMS);
+  Serial.println(threshold);
+
+  if (isWatering == true)
+  {
+    triggerWater(waterTimeMS);
+  }
+
+  automaticWater(threshold, waterTimeMS);
 }

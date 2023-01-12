@@ -15,4 +15,5 @@ void loop() {
     moisturePercentPOST();
     automaticWater(60, 2000);
     delay(10000);
+    getAndUpdateBackendInformation();
 }
