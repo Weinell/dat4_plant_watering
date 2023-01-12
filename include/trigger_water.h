@@ -2,7 +2,7 @@
 #define TRIGGER_WATER_H
 
 
-void triggerWater(int milisDelay);
-void automaticWater();
+void triggerWater(int timeMilis);
+void automaticWater(int threshold, int timeMilis);
 
 #endif

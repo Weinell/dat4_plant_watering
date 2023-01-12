@@ -2,5 +2,6 @@
 #define HTTP_FUNCTIONALITY_H
 
 void moisturePercentPOST();
+void getBackendInformation();
 
 #endif
