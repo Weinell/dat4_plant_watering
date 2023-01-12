@@ -21,8 +21,9 @@ void triggerWater(int timeMilis) {
     digitalWrite(LEDPin, LOW);
 }
 
-void automaticWater(int threshold, int timeMilis)   {
+void automaticWater(int newThreshold, int timeMilis)   {
     int moisture = measureMoisture();
+    threshold = newThreshold;
     if(moisture <= threshold)
     {
         Serial.println("Automatically watering!");
